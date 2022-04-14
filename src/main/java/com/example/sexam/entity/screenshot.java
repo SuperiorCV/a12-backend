@@ -1,18 +1,20 @@
 package com.example.sexam.entity;
 
-import com.example.sexam.embed.screenshot_key;
-
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "screenshot")
 public class screenshot {
 
-    @EmbeddedId
-    private screenshot_key id;
+    @Id
+    @Column(name = "id")
+    private String id;
+
+    @Column(name = "studentUsername")
+    private String studentUsername;
+
+    @Column(name = "eid")
+    private String eid;
 
     @Column(name = "imagePath")
     private String imagePath;
@@ -20,17 +22,35 @@ public class screenshot {
     public screenshot() {
     }
 
-    public screenshot(screenshot_key id, String imagePath) {
+    public screenshot(String id, String studentUsername, String eid, String imagePath) {
         this.id = id;
+        this.studentUsername = studentUsername;
+        this.eid = eid;
         this.imagePath = imagePath;
     }
 
-    public screenshot_key getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(screenshot_key id) {
+    public void setId(String id) {
         this.id = id;
+    }
+
+    public String getStudentUsername() {
+        return studentUsername;
+    }
+
+    public void setStudentUsername(String studentUsername) {
+        this.studentUsername = studentUsername;
+    }
+
+    public String getEid() {
+        return eid;
+    }
+
+    public void setEid(String eid) {
+        this.eid = eid;
     }
 
     public String getImagePath() {

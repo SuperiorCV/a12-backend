@@ -142,15 +142,15 @@ create table doneQuestion
 create table user_log
 (
     username VARCHAR(40),
-    ldate VARCHAR(30),
-    content VARCHAR(70),
-    PRIMARY KEY(username,ldate)
+    ldate    VARCHAR(30),
+    content  VARCHAR(70),
+    PRIMARY KEY (username, ldate)
 );
 
 create table screenshot
 (
+    id              VARCHAR(40) PRIMARY KEY,
     studentUsername VARCHAR(40),
-    eid VARCHAR(40),
-    imagePath VARCHAR(270),
-    PRIMARY KEY(eid,studentUsername)
+    eid             VARCHAR(40),
+    imagePath       VARCHAR(270)
 );

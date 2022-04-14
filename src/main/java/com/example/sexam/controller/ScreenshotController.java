@@ -1,6 +1,5 @@
 package com.example.sexam.controller;
 
-import com.example.sexam.embed.screenshot_key;
 import com.example.sexam.entity.screenshot;
 import com.example.sexam.repository.ScreenshotRepository;
 import com.example.sexam.utils.MyJson;
@@ -45,7 +44,7 @@ public class ScreenshotController {
         String filePath = new File(root).getAbsolutePath() + "/screenshot/" + fileName;
         try {
             image.transferTo(new File(filePath));
-            screenshot s = new screenshot(new screenshot_key(eid, studentUsername), "/screenshot/" + fileName);
+            screenshot s = new screenshot(fileName, studentUsername, eid, "/screenshot/" + fileName);
             screenshotRepository.save(s);
         } catch (IOException e) {
             e.printStackTrace();

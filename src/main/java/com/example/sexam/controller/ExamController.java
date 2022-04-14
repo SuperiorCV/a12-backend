@@ -659,10 +659,10 @@ public class ExamController {
         user_info u = userInfoRepository.getById(username);
         exam e = examRepository.getById(eid);
 //        先计算学生的精准度
-        int accuracy = (rightCnt / e.getQuestionCnt() * 100 + u.getAccuracy() * (u.getWarTimes() - 1)) / u.getWarTimes();
+        int accuracy = (rightCnt * 100 / e.getQuestionCnt() + u.getAccuracy() * (u.getWarTimes() - 1)) / u.getWarTimes();
         u.setAccuracy(accuracy);
 //        计算得分率
-        int averagePoint = (int) (total / e.getTotalScore() * 100 + u.getAveragePoint() * (u.getWarTimes() - 1)) / u.getWarTimes();
+        int averagePoint = (int) (total * 100 / e.getTotalScore() + u.getAveragePoint() * (u.getWarTimes() - 1)) / u.getWarTimes();
         u.setAveragePoint(averagePoint);
 //      计算优秀次数
         if (total / e.getTotalScore() * 100 >= 80) {
